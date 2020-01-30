@@ -8,8 +8,8 @@ body {
   }
   
   .logo {
-    width: 20%;
-    height: 90%;
+    width: 25%;
+    height: 100%;
     margin: 3% 10%;
   }
   
@@ -41,7 +41,7 @@ body {
   }
   
   .has-border {
-    border-radius: 25px;
+    border-radius: 10px;
     border: 2px solid blue;
     background: none;
     padding: 20px; 
