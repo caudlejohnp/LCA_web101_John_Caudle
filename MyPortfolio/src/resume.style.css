@@ -46,6 +46,12 @@ hr {
     display: grid;
     grid-template-columns:1.5fr 1.5fr 7fr;
 }
+.certs {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    margin-left: 5em;
+    margin-right: 5em;
+}
 li {
     font-style: italic;
 }
