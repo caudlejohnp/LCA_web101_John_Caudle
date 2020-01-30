@@ -1,0 +1,51 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+.address {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.contact {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.summary {
+    margin-left: 10em;
+    margin-right: 10em;
+    text-indent: 2em;
+}
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 2em;
+    font-size: 30px;
+    margin-right:4em;
+    text-decoration: underline;
+}
+hr {
+    height: 3px;
+    background-color: black;
+    margin-left: 15em;
+    margin-right: 15em;
+}
+.grid1 {
+    margin-left: 8em;
+    margin-right: 8em;
+    width: 20% auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1em;
+    grid-column-gap: 3em;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.job {
+    display: grid;
+    grid-template-columns:1.5fr 1.5fr 7fr;
+}
+li {
+    font-style: italic;
+}
