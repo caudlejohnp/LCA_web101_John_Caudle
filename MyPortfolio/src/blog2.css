@@ -1,0 +1,32 @@
+h1 {
+    text-decoration: underline;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+section {
+    margin-left: 5em;
+    margin-right: 4em;
+}
+div {
+    font-size: 20px;
+    text-indent: 8em;
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+article {
+    margin-left:15em;
+    margin-right:15em;
+    background-color: green;
+    font-size: 15px;
+    color: white;
+    border-style: solid;
+    border-color: black;
+    border-left-width: 5px;
+}
+article:hover {
+    color:white;
+    background-color:black;
+    border-color: green;
+}
