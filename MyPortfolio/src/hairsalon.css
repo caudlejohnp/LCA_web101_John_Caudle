@@ -337,7 +337,7 @@
             "nav nav nav nav nav"
             "main main main main main"
             ". photo1 photo2 photo3 ."
-            "copyright copyright copyright copyright copyright"
+            "copyright copyright copyright copyright copyright";
     }
 
     .title {
@@ -418,7 +418,7 @@
         display: grid;
         grid-template-columns: 50% repeat(4, 1fr);
         grid-template-areas:
-            "copyright twitter google facebook pintrest"
+            "copyright twitter google facebook pintrest";
     }
 
     .copyright {
