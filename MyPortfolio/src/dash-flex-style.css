@@ -1,0 +1,403 @@
+@media (min-width: 320px) {
+
+    .container {
+        background-image: url(background3.jpg);
+        background-repeat: none;
+        background-size: cover;
+        display: grid;
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-areas:
+            "weather"
+            "clock"
+            "to-do"
+            "grocery"
+            "calculator"
+            "calendar";
+        grid-row-gap: 2em;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: white;
+        padding-top: 5%;
+    }
+
+    .to-do {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 25px;
+        text-align: center;
+        font-weight: bold;
+        text-decoration: underline;
+        padding-bottom: 10%;
+    }
+
+    li {
+        padding: 10px;
+    }
+
+    .grocery {
+        display: grid;
+        grid-template-columns: .5fr 1fr;
+        grid-template-rows: .5fr 1fr;
+        grid-template-areas: "add text" "complete list";
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+    }
+
+    .add {
+        padding-top: 1em;
+        padding-left: 2em;
+    }
+
+    .text {
+        background-color: white;
+        margin: 5%;
+        padding-top: 10px;
+        color: black;
+        text-align: center;
+        border: 2px solid black;
+    }
+
+    .complete {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .row {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .calculator {
+        grid-area:calculator;
+        /*display: grid;
+        grid-template-columns: repeat(4 1fr);
+        grid-template-rows: repeat(5 1fr);
+        grid-template-areas: 
+            "total total total clear" 
+            "btn7 btn8 btn9 btn-div" 
+            "btn4 btn5 btn6 btn-mult"
+            "btn1 btn2 btn3 btn-plus"
+            "btn-per btn0 btn-equ btn-sub";
+        background-color: white;
+        color: black;
+        margin-left: 5%;
+        margin-right: 5%;*/
+    }
+
+    .total {
+        background-color: lightgrey;
+        grid-area: total;
+        border-style: solid;
+        border-width: 2px 1px 1px 2px;
+        border-color: white;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 10px;
+        width: 60%;
+    }
+    /*a change*/
+    .clear {
+        grid-area: clear;
+        text-align: center;
+        font-weight: bold;
+        padding-top: 10px;
+        border-style: solid;
+        border-width: 1px;
+        background-color: black;
+        color: white;
+        width: 20%;
+    }
+    
+    .btn7 {
+        grid-area: btn7;
+        background-color: midnightblue;
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+        border-style: solid;
+        border-width: 1px;
+        font-weight: bold;
+        width: 20%;
+    }
+    
+    .btn8 {
+        grid-area: btn8;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: midnightblue;
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn9 {
+        grid-area: btn9;
+        border-style: solid;
+        border-width: 1px;
+        background-color: midnightblue;
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn-div {
+        grid-area: btn-div;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        font-weight: bold;
+        background-color: rgb(112, 25, 25);
+        color: white;
+        width: 20%;
+    }
+
+    .btn4 {
+        grid-area: btn4;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: midnightblue;
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn5 {
+        grid-area: btn5;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: midnightblue;
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn6 {
+        grid-area: btn6;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: midnightblue;
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn-mult {
+        grid-area: btn-mult;
+        text-align: center;
+        font-weight: bold;
+        padding-top: 10px;
+        border-style: solid;
+        border-width: 1px;
+        background-color: rgb(112, 25, 25);
+        color: white;
+        width: 20%;
+    }
+
+    .btn1 {
+        grid-area: btn1;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: midnightblue;
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn2 {
+        grid-area: btn2;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: midnightblue;
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn3 {
+        grid-area: btn3;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: midnightblue;
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn-plus {
+        grid-area: btn-plus;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        font-weight: bold;
+        background-color: rgb(112, 25, 25);
+        color: white;
+        width: 20%;
+    }
+
+    .btn-per {
+        grid-area: btn-per;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        font-weight: bold;
+        background-color: rgb(112, 25, 25);
+        color: white;
+        width: 20%;
+    }
+
+    .btn0 {
+        grid-area: btn0;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: midnightblue;
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .btn-equ {
+        grid-area: btn-equ;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        font-weight: bold;
+        background-color: rgb(112, 25, 25);
+        color: white;
+        width: 20%;
+    }
+
+    .btn-sub {
+        grid-area: btn-sub;
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        padding-top: 10px;
+        background-color: rgb(112, 25, 25);
+        color: white;
+        font-weight: bold;
+        width: 20%;
+    }
+
+    .calendar {
+        grid-area:calendar;
+        /* display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1.5fr 0.5fr repeat(5, 1fr);
+        grid-template-areas:
+            "month month month month month year year"
+            "day-sun day-mon day-tue day-wed day-thu day-fri day-sat"
+            "day1 day2 day3 day4 day5 day6 day7"
+            "day8 day9 day10 day11 day12 day13 day14"
+            "day15 day16 day17 day18 day19 day20 day21"
+            "day22 day23 day24 day25 day26 day27 day28"
+            "day29 day30 day31 . . . .";
+        border-style: solid;
+        border-width: 1px;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        background-color: black;
+        color: white;
+        text-align: center; */
+    }
+
+    .caltainer {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1.5fr 0.5fr repeat(5, 1fr);
+        grid-template-areas:
+            "month month month month month year year"
+            "day-sun day-mon day-tue day-wed day-thu day-fri day-sat"
+            "day1 day2 day3 day4 day5 day6 day7"
+            "day8 day9 day10 day11 day12 day13 day14"
+            "day15 day16 day17 day18 day19 day20 day21"
+            "day22 day23 day24 day25 day26 day27 day28"
+            "day29 day30 day31 . . . .";
+        border-style: solid;
+        border-width: 1px;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+
+    .month {
+        grid-area: month;
+        font-weight: bold;
+        font-size: 100%;
+    }
+
+    .year {
+        grid-area: year;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .container {
+        display: grid;
+        grid-template-rows: 60% 40%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "weather clock to-do"
+            "grocery calculator calendar";
+            grid-gap: 0em;
+            padding-top: 0%;
+    }
+    .weather {
+        padding: 5%;
+    }
+
+    .clock {
+        padding-top: 20%;
+    }
+
+    .to-do {
+        margin-left: 15%;
+    }
+
+    .text {
+        max-height: 2em;
+        max-width: 10em;    
+    }
+
+    li {
+        text-align: left;
+    }
+
+    h2 {
+        padding-top: 2em;
+    }
+}
+
+@media (min-width: 992px) {
+
+}
