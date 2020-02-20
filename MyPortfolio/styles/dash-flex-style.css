@@ -1,11 +1,18 @@
 @media (min-width: 320px) {
 
     .container {
-        background-image: url(background3.jpg);
+        background-image: url(../images/background3.jpg);
         background-repeat: none;
         background-size: cover;
         display: grid;
         grid-template-rows: repeat(6, 1fr);
+        grid-template-areas:
+            "weather"
+            "clock"
+            "to-do"
+            "grocery"
+            "calculator"
+            "calendar";
         grid-row-gap: 2em;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         color: white;
@@ -57,8 +64,15 @@
         padding: 10px;
     }
 
+    .row {
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
     .calculator {
-        display: grid;
+        grid-area:calculator;
+        /*display: grid;
         grid-template-columns: repeat(4 1fr);
         grid-template-rows: repeat(5 1fr);
         grid-template-areas: 
@@ -70,7 +84,7 @@
         background-color: white;
         color: black;
         margin-left: 5%;
-        margin-right: 5%;
+        margin-right: 5%;*/
     }
 
     .total {
@@ -82,6 +96,7 @@
         font-weight: bold;
         text-align: center;
         padding-top: 10px;
+        width: 60%;
     }
     /*a change*/
     .clear {
@@ -93,6 +108,7 @@
         border-width: 1px;
         background-color: black;
         color: white;
+        width: 20%;
     }
     
     .btn7 {
@@ -104,6 +120,7 @@
         border-style: solid;
         border-width: 1px;
         font-weight: bold;
+        width: 20%;
     }
     
     .btn8 {
@@ -115,6 +132,7 @@
         background-color: midnightblue;
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn9 {
@@ -126,6 +144,7 @@
         text-align: center;
         padding-top: 10px;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn-div {
@@ -137,6 +156,7 @@
         font-weight: bold;
         background-color: rgb(112, 25, 25);
         color: white;
+        width: 20%;
     }
 
     .btn4 {
@@ -148,6 +168,7 @@
         background-color: midnightblue;
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn5 {
@@ -159,6 +180,7 @@
         background-color: midnightblue;
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn6 {
@@ -170,6 +192,7 @@
         background-color: midnightblue;
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn-mult {
@@ -181,6 +204,7 @@
         border-width: 1px;
         background-color: rgb(112, 25, 25);
         color: white;
+        width: 20%;
     }
 
     .btn1 {
@@ -192,6 +216,7 @@
         background-color: midnightblue;
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn2 {
@@ -203,6 +228,7 @@
         background-color: midnightblue;
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn3 {
@@ -214,6 +240,7 @@
         background-color: midnightblue;
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn-plus {
@@ -225,6 +252,7 @@
         font-weight: bold;
         background-color: rgb(112, 25, 25);
         color: white;
+        width: 20%;
     }
 
     .btn-per {
@@ -236,6 +264,7 @@
         font-weight: bold;
         background-color: rgb(112, 25, 25);
         color: white;
+        width: 20%;
     }
 
     .btn0 {
@@ -247,6 +276,7 @@
         background-color: midnightblue;
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .btn-equ {
@@ -258,6 +288,7 @@
         font-weight: bold;
         background-color: rgb(112, 25, 25);
         color: white;
+        width: 20%;
     }
 
     .btn-sub {
@@ -269,12 +300,36 @@
         background-color: rgb(112, 25, 25);
         color: white;
         font-weight: bold;
+        width: 20%;
     }
 
     .calendar {
+        grid-area:calendar;
+        /*display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1.5fr 0.5fr repeat(5, 1fr);
+        grid-template-areas:
+            "month month month month month year year"
+            "day-sun day-mon day-tue day-wed day-thu day-fri day-sat"
+            "day1 day2 day3 day4 day5 day6 day7"
+            "day8 day9 day10 day11 day12 day13 day14"
+            "day15 day16 day17 day18 day19 day20 day21"
+            "day22 day23 day24 day25 day26 day27 day28"
+            "day29 day30 day31 . . . .";
+        border-style: solid;
+        border-width: 1px;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        background-color: black;
+        color: white;
+        text-align: center;*/
+    }
+
+    .caltainer { 
         display: grid;
-        grid-template-columns: repeat(7 1fr);
-        grid-template-rows: 1.5fr 0.5fr repeat(5 1fr);
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: 1.5fr 0.5fr repeat(5, 1fr);
         grid-template-areas:
             "month month month month month year year"
             "day-sun day-mon day-tue day-wed day-thu day-fri day-sat"
@@ -310,10 +365,10 @@
     .container {
         display: grid;
         grid-template-rows: 60% 40%;
-        grid-template-columns: repeat(3 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
-            "weather to-do calendar"
-            "clock grocery calculator";
+            "weather clock to-do"
+            "grocery calculator calendar";
             grid-gap: 0em;
             padding-top: 0%;
     }
@@ -322,7 +377,11 @@
     }
 
     .clock {
-        padding: 20% 10%;
+        padding-top: 20%;
+    }
+
+    .to-do {
+        margin-left: 15%;
     }
 
     .text {
