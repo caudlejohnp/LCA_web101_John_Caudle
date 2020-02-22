@@ -1,0 +1,80 @@
+body {
+    width: 850px;
+    margin: 0 auto;
+}
+
+main {
+    margin: 0 auto;
+    height: 450px;
+    background-image: url(../images/nasa-img2.jfif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.nasa {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 450px;
+    font-size: 80px;
+    font-family: 'Krona One';
+}
+
+section {
+    display: flex;
+    height: 324px;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(224, 222, 222);
+}
+
+.box1 {
+    width: 270px;
+}
+
+.box2 {
+    width: 270px;
+}
+
+.box3 {
+    width: 270px;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 10px;
+}
+
+p {
+    font-size: 20px;
+    padding:10 0 10 10
+}
+
+.name {
+    background-color: white;
+    width: 200px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.message {
+    background-color: white;
+    width: 200px;
+    height: 75px;
+    margin-left: 10px;
+}
+
+.send {
+    height: 40px;
+    width: 70px;
+    margin-top: 25px;
+    margin-left: 10px;
+    font-size: 20px;
+    background-color: grey;
+}
+
+.send:hover {
+    color:white;
+    background-color: black;
+}
