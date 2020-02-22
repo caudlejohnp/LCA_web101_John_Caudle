@@ -312,8 +312,8 @@
         grid-template-rows: 60% 40%;
         grid-template-columns: repeat(3 1fr);
         grid-template-areas:
-            "weather to-do calendar"
-            "clock grocery calculator";
+            "weather clock todo"
+            "grocery calculator calendar";
             grid-gap: 0em;
             padding-top: 0%;
     }
