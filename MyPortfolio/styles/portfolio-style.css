@@ -1,0 +1,91 @@
+@media (min-width:320px) {
+
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            "dash nasa hair bacon";
+        text-align: center;
+        font-size: 1em;
+
+    }
+
+    a.dash, a.nasa, a.hair, a.bacon {
+        color: white;
+    }
+
+    .dash {
+        grid-area: dash;
+    }
+
+    .nasa {
+        grid-area: nasa;
+    }
+
+    .hair {
+        grid-area: hair;
+    }
+
+    .bacon {
+        grid-area: bacon;
+    }
+
+    .iframe-container{
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; 
+        height: 0;
+      }
+      .iframe-container iframe{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+    form {
+        padding:10px;
+    }
+
+    p {
+        font-weight: bold;
+        padding: 5px;
+    }
+}
+
+@media (min-width: 568px) {
+
+    nav {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 992px) {
+
+    main {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-areas:
+            "nav nav"
+            "iframe-container form-container";
+    }
+    
+    .iframe-container {
+        grid-area: iframe-container;
+    }
+
+    .form-container {
+        grid-area: form-container;
+    }
+    
+    nav {
+        grid-area: nav;
+        margin: 5%;
+    }
+}

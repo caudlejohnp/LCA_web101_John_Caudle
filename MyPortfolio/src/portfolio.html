@@ -1,16 +1,63 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/portfolio-style.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/portfolio-style.css">
     <title>John Caudle's Portfolio</title>
 </head>
 
- <header>
-     <nav></nav>
- </header>
 <body>
-    <p>href="dashboard.html"</p>
+
+    <header>
+
+        <nav>
+            <div class="dash">
+                <a href="../src/dashboard.html" class="dash">Dashboard</a>
+            </div>
+
+            <div class="nasa">
+                <a href="../src/nasa.html" class="nasa">NASA</a>
+            </div>
+
+            <div class="hair">
+                <a href="../hairsalon.html" class="hair">Hair Salon</a>
+            </div>
+
+            <div class="bacon">
+                <a href="../bacon.html" class="bacon">Bacon</a>
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="iframe-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qgCrUsPR38I" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+
+        <div class="form-container">
+
+            <form>
+                <p>Name</p>
+                <input type="text" name="name" id="name" required />
+                <p>E-Mail</p>
+                <input type="email" name="email" id="email" required />
+                <p>Date of Birth</p>
+                <input type="date" name="DOB" id="date-of-birth" required />
+                <p>Location</p>
+                <input type="loc" name="loc" id="loc" required />
+                <p>Message</p>
+                <input type="message" name="message" id="message" required />
+                <p><input type="submit" value="Submit" /><input type="reset" value="Reset" />
+            </form>
+        </div>
+
+    </main>
 </body>
+
 </html>
