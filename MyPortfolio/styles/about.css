@@ -2,9 +2,10 @@
 
     .container {
         display: grid;
-        grid-template-rows: 5% repeat(6, 1fr);
+        grid-template-rows: 5% repeat(7, 1fr);
         grid-template-areas:
             "header"
+            "about"
             "ceo"
             "cfo"
             "team1"
@@ -47,6 +48,10 @@
         text-align: justify;
     }
 
+    .about {
+        grid-area: about;
+    }
+
     .ceo {
         grid-area: ceo;
     }
@@ -76,10 +81,11 @@
 
     .container {
         display: grid;
-        grid-template-rows: 20% 1fr 1fr;
+        grid-template-rows: 20% 20% 1fr 1fr;
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas:
             ". header header ."
+            ". about about ."
             ". ceo cfo ."
             "team1 team2 team3 team4";
         background-image: url(../images/abstergo-back.jpg);
