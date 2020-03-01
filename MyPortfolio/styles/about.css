@@ -1,0 +1,97 @@
+@media (min-width: 320px) {
+
+    .container {
+        display: grid;
+        grid-template-rows: 5% repeat(6, 1fr);
+        grid-template-areas:
+            "header"
+            "ceo"
+            "cfo"
+            "team1"
+            "team2"
+            "team3"
+            "team4";
+        background-color: black;
+        color:white;
+    }
+
+    header {
+        grid-area: header;
+        text-align: center;
+        font-size: 20px;
+        color: rgb(130, 0, 0);
+        padding-top: 15px;
+    }
+
+    .headshot {
+        height: 150px;
+        padding-left: 110px;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+        font-weight: bolder;
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 20px;
+        text-align: center;
+        margin: 10px;
+    }
+
+    p {
+        font-size: 15px;
+        padding: 10px;
+        text-align: justify;
+    }
+
+    .ceo {
+        grid-area: ceo;
+    }
+
+    .cfo {
+        grid-area: cfo;
+    }
+
+    .team1 {
+        grid-area: team1;
+    }
+
+    .team2 {
+        grid-area: team2;
+    }
+
+    .team3 {
+        grid-area: team3;
+    }
+
+    .team4 {
+        grid-area: team4;
+    }
+}
+
+@media (min-width: 992px){
+
+    .container {
+        display: grid;
+        grid-template-rows: 20% 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            ". header header ."
+            ". ceo cfo ."
+            "team1 team2 team3 team4";
+        background-image: url(../images/abstergo-back.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    header {
+        font-size: 30px;
+    }
+
+    .headshot {
+        padding-left: 75px;
+    }
+}
