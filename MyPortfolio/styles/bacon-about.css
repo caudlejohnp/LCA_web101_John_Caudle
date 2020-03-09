@@ -1,0 +1,91 @@
+@media (min-width: 320px) {
+    .container {
+        display: grid;
+        grid-template-rows: 5% 35% 30% 30%;
+        grid-template-areas:
+            "header"
+            "top"
+            "iframe-container"
+            "abt-bacon";
+    }
+
+    header {
+        grid-area: header;
+        background-color: rgb(51,168,221);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .top {
+        grid-area: top;
+        background-color: rgb(51,168,221);
+        color: white;
+        font-size: 40px;
+        text-align: center;
+        padding-top: 90px;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    .iframe-container{
+        grid-area: iframe-container;
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; 
+        height: 0;
+    }
+    .iframe-container iframe{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    h2 {
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .content {
+        font-size: 15px;
+        text-align: justify;
+        padding: 15px;
+    }
+}
+
+@media (min-width: 992px){
+
+    .container {
+        display: grid;
+        grid-template-rows: 5% 35% 60%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "header header"
+            "top top"
+            "iframe-container abt-bacon";
+    }
+
+    .top {
+        font-size: 75px;
+    }
+
+    .abt-bacon {
+        background-color: black;
+        color: white;
+    }
+
+    h2 {
+        background-color: green;
+        margin: 15px 5em;
+        padding: 5px;
+    }
+
+    .content {
+        font-size: 20px;
+    }
+}

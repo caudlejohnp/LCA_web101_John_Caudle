@@ -13,6 +13,7 @@
 
     header {
         grid-area: header;
+        background-color: rgb(51,168,221);
     }
 
     nav {
