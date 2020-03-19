@@ -13,33 +13,19 @@
 
     .to-do {
         font-size: 20px;
-        text-align: center;
-    }
-
-    h2 {
-        font-size: 25px;
-        text-align: center;
-        font-weight: bold;
-        text-decoration: underline;
-        padding-bottom: 10%;
     }
 
     li {
         padding: 10px;
     }
 
-    .grocery {
-        display: grid;
-        grid-template-columns: .5fr 1fr;
-        grid-template-rows: .5fr 1fr;
-        grid-template-areas: "add text" "complete list";
-        grid-column-gap: 5px;
-        grid-row-gap: 5px;
+    #header {
+        text-align: center;
     }
 
-    .add {
-        padding-top: 1em;
-        padding-left: 2em;
+    .geo {
+        justify-self: center;
+        font-size: auto;
     }
 
     .text {
@@ -82,7 +68,7 @@
         text-align: center;
         padding-top: 10px;
     }
-    /*a change*/
+
     .clear {
         grid-area: clear;
         text-align: center;
@@ -308,20 +294,21 @@
 
     .container {
         display: grid;
-        grid-template-rows: 60% 40%;
-        grid-template-columns: repeat(3 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
             "weather clock todo"
-            "grocery calculator calendar";
+            "geo calculator calendar";
             grid-gap: 0em;
             padding-top: 0%;
     }
+
     .weather {
         padding: 5%;
     }
 
     .clock {
-        padding: 20% 10%;
+        padding: 10%;
     }
 
     .text {
