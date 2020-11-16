@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model -->
+<html class="hasSidebar hasPageActions hasBreadcrumb conceptual has-default-focus js-focus-visible theme-light" lang="en-us" dir="ltr" data-css-variable-support="true" data-authenticated="false" data-auth-status-determined="true" data-target="docs" x-ms-format-detection="none" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Model-Based Conventions - EF6">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@docsmsft">
+
+
+	<meta name="audience" content="developer">
+<meta name="author" content="divega">
+<meta name="breadcrumb_path" content="/ef/breadcrumb/toc.json">
+<meta name="depot_name" content="MSDN.ef">
+<meta name="document_id" content="438cecd8-7d2b-f056-d840-28c67b993bdc">
+<meta name="document_version_independent_id" content="852001f3-8cf5-99d6-6798-d321443341e1">
+<meta name="gitcommit" content="https://github.com/dotnet/EntityFramework.Docs/blob/f66d2b8e37461c0a29b514569940b2b2c1aa20ee/entity-framework/ef6/modeling/code-first/conventions/model.md">
+<meta name="locale" content="en-us">
+<meta name="ms.assetid" content="0fc4eef8-29b8-4192-9c77-08fd33d3db3a">
+<meta name="ms.author" content="avickers">
+<meta name="ms.date" content="10/23/2016">
+<meta name="ms.devlang" content="dotnet">
+<meta name="ms.prod" content="entity-framework">
+<meta name="ms.technology" content="entity-framework-6">
+<meta name="ms.tgt_pltfrm" content="dotnet">
+<meta name="ms.topic" content="conceptual">
+<meta name="original_content_git_url" content="https://github.com/dotnet/EntityFramework.Docs/blob/live/entity-framework/ef6/modeling/code-first/conventions/model.md">
+<meta name="search.ms_docsetname" content="ef">
+<meta name="search.ms_product" content="MSDN">
+<meta name="search.ms_sitename" content="Docs">
+<meta name="site_name" content="Docs">
+<meta name="updated_at" content="2020-02-19 08:52 PM">
+<meta name="page_type" content="conceptual">
+<meta name="toc_rel" content="../../../../toc.json">
+<meta name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/MSDN.ef/{branchName}{pdfName}">
+<meta name="word_count" content="1141">
+
+
+	<meta name="scope" content="Entity Framework">
+<link href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model" rel="canonical">
+	<title>Model-Based Conventions - EF6 | Microsoft Docs</title>
+
+		<link rel="stylesheet" href="./Model-Based Conventions_files/13a6fcfc.site-ltr.css">
+
+	<link rel="stylesheet" href="./Model-Based Conventions_files/5a8a71c1.conceptual.css">
+
+
+	<script async="" defer="" crossorigin="anonymous" src="./Model-Based Conventions_files/lux.js.download"></script><script async="" src="./Model-Based Conventions_files/analytics.js.download"></script><script>
+	var msDocs = {
+		data: {
+			timeOrigin: Date.now(),
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: '',
+			context: {
+
+			},
+			hasBinaryRating: true,
+			hasGithubIssues: true,
+			showFeedbackReport: false,
+			enableTutorialFeedback: false,
+			feedbackSystem: 'GitHub',
+			feedbackGitHubRepo: 'dotnet/EntityFramework.Docs',
+			feedbackProductUrl: 'https://github.com/dotnet/ef6/issues/new',
+			contentGitUrl: 'https://github.com/dotnet/EntityFramework.Docs/blob/master/entity-framework/ef6/modeling/code-first/conventions/model.md',
+			extendBreadcrumb: true,
+			isEditDisplayable: true,
+			hideViewSource: false,
+			hasPageActions: true,
+			hasBookmark: true,
+			hasShare: true
+		},
+		functions:{}
+	};
+	</script>
+	<script nomodule="" src="./Model-Based Conventions_files/bluebird.min.js.download" integrity="sha384-aD4BDeDGeLXLpPK4yKeqtZQa9dv4a/7mQ+4L5vwshIYH1Mc2BrXvHd32iHzYCQy5" crossorigin="anonymous"></script>
+	<script nomodule="" src="./Model-Based Conventions_files/fetch.umd.min.js.download" integrity="sha384-EQIXrC5K2+7X8nGgLkB995I0/6jfAvvyG1ieZ+WYGxgJHFMD/alsG9fSDWvzb5Y1" crossorigin="anonymous"></script>
+	<script nomodule="" src="./Model-Based Conventions_files/template.min.js.download" integrity="sha384-1zKzI6ldTVHMU7n0W2HpE/lhHI+UG4D9IIaxbj3kT2UhCWicdTuJkTtnKuu0CQzN" crossorigin="anonymous"></script>
+	<script nomodule="" src="./Model-Based Conventions_files/url.min.js.download" integrity="sha384-vn7xBMtpSTfzaTRWxj0kVq0UcsbBrTOgZ/M1ISHqe1V358elYva+lfiEC+T8jLPc" crossorigin="anonymous"></script>
+	<script nomodule="" src="./Model-Based Conventions_files/7501e2bd.index-polyfills.js.download"></script>
+		<script src="./Model-Based Conventions_files/78a7b553.index-docs.js.download"></script><style></style><script src="./Model-Based Conventions_files/jsll-4.js.download" async="" defer=""></script>
+<script async="" src="./Model-Based Conventions_files/t.js.download"></script><script async="" src="./Model-Based Conventions_files/t.js(1).download"></script><style type="text/css" media="print">.usabilla_live_button_container { display: none; }</style><script async="" src="./Model-Based Conventions_files/t.js(2).download"></script><script async="" src="./Model-Based Conventions_files/t.js(3).download"></script><script async="" src="./Model-Based Conventions_files/t.js(4).download"></script><script async="" src="./Model-Based Conventions_files/t.js(5).download"></script><script async="" src="./Model-Based Conventions_files/t.js(6).download"></script><script async="" src="./Model-Based Conventions_files/t.js(7).download"></script><script async="" src="./Model-Based Conventions_files/t.js(8).download"></script><script async="" src="./Model-Based Conventions_files/t.js(9).download"></script><script async="" src="./Model-Based Conventions_files/t.js(10).download"></script><script async="" src="./Model-Based Conventions_files/t.js(11).download"></script><script async="" src="./Model-Based Conventions_files/t.js(12).download"></script><script async="" src="./Model-Based Conventions_files/t.js(13).download"></script><script async="" src="./Model-Based Conventions_files/t.js(14).download"></script><script async="" src="./Model-Based Conventions_files/t.js(15).download"></script><script async="" src="./Model-Based Conventions_files/t.js(16).download"></script><script async="" src="./Model-Based Conventions_files/t.js(17).download"></script><script async="" src="./Model-Based Conventions_files/t.js(18).download"></script><script async="" src="./Model-Based Conventions_files/t.js(19).download"></script><script async="" src="./Model-Based Conventions_files/t.js(20).download"></script><script async="" src="./Model-Based Conventions_files/t.js(21).download"></script><script async="" src="./Model-Based Conventions_files/t.js(22).download"></script><script async="" src="./Model-Based Conventions_files/t.js(23).download"></script><script async="" src="./Model-Based Conventions_files/t.js(24).download"></script><script async="" src="./Model-Based Conventions_files/t.js(25).download"></script><script async="" src="./Model-Based Conventions_files/t.js(26).download"></script><script async="" src="./Model-Based Conventions_files/t.js(27).download"></script><script async="" src="./Model-Based Conventions_files/t.js(28).download"></script><script async="" src="./Model-Based Conventions_files/t.js(29).download"></script><script async="" src="./Model-Based Conventions_files/t.js(30).download"></script><script async="" src="./Model-Based Conventions_files/t.js(31).download"></script><script async="" src="./Model-Based Conventions_files/t.js(32).download"></script><script async="" src="./Model-Based Conventions_files/t.js(33).download"></script><script async="" src="./Model-Based Conventions_files/t.js(34).download"></script><script async="" src="./Model-Based Conventions_files/t.js(35).download"></script><script async="" src="./Model-Based Conventions_files/t.js(36).download"></script><script async="" src="./Model-Based Conventions_files/t.js(37).download"></script><script async="" src="./Model-Based Conventions_files/t.js(38).download"></script><script async="" src="./Model-Based Conventions_files/t.js(39).download"></script><script async="" src="./Model-Based Conventions_files/t.js(40).download"></script><script async="" src="./Model-Based Conventions_files/t.js(41).download"></script><script async="" src="./Model-Based Conventions_files/t.js(42).download"></script><script async="" src="./Model-Based Conventions_files/t.js(43).download"></script><script async="" src="./Model-Based Conventions_files/t.js(44).download"></script><script async="" src="./Model-Based Conventions_files/t.js(45).download"></script><script async="" src="./Model-Based Conventions_files/t.js(46).download"></script><script async="" src="./Model-Based Conventions_files/t.js(47).download"></script><script async="" src="./Model-Based Conventions_files/t.js(48).download"></script><script async="" src="./Model-Based Conventions_files/t.js(49).download"></script><script async="" src="./Model-Based Conventions_files/t.js(50).download"></script><script async="" src="./Model-Based Conventions_files/t.js(51).download"></script><script async="" src="./Model-Based Conventions_files/t.js(52).download"></script><script async="" src="https://web.vortex.data.microsoft.com/collect/v1/t.js?ver=%272.1%27&amp;name=%27Ms.Webi.ContentUpdate%27&amp;time=%272020-06-15T17%3A54%3A42.114Z%27&amp;os=%27Windows%27&amp;appId=%27JS%3ADocs%27&amp;-ver=%271.0%27&amp;-impressionGuid=%27c6be0795-27fa-4f30-a6eb-e508eba46a1f%27&amp;-pageName=%27438cecd8-7d2b-f056-d840-28c67b993bdc%27&amp;-uri=%27https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fef%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel%27&amp;-market=%27en-us%27&amp;-pageTags=%27%7B%22aud%22%3A%22developer%22%2C%22author%22%3A%22divega%22%2C%22depotname%22%3A%22MSDN.ef%22%2C%22document_version_independent_id%22%3A%22852001f3-8cf5-99d6-6798-d321443341e1%22%2C%22gitcommit%22%3A%22https%3A%2F%2Fgithub.com%2Fdotnet%2FEntityFramework.Docs%2Fblob%2Ff66d2b8e37461c0a29b514569940b2b2c1aa20ee%2Fentity-framework%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel.md%22%2C%22asst%22%3A%220fc4eef8-29b8-4192-9c77-08fd33d3db3a%22%2C%22pgauth%22%3A%22avickers%22%2C%22date%22%3A%2210%2F23%2F2016%22%2C%22pgdevlng%22%3A%22dotnet%22%2C%22product%22%3A%22entity-framework%22%2C%22technology%22%3A%22entity-framework-6%22%2C%22pgtrgtplf%22%3A%22dotnet%22%2C%22pgtop%22%3A%22conceptual%22%2C%22giturl%22%3A%22https%3A%2F%2Fgithub.com%2Fdotnet%2FEntityFramework.Docs%2Fblob%2Flive%2Fentity-framework%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel.md%22%2C%22publishtime%22%3A%222020-02-19%2008%3A52%20PM%22%2C%22contentlocale%22%3A%22en-us%22%2C%22highContrast%22%3A%22false%22%2C%22metaTags%22%3A%7B%7D%7D%27&amp;-pageHeight=5973&amp;-vpHeight=866&amp;-vpWidth=1400&amp;-actionType=%27R%27&amp;-behavior=0&amp;-vScrollOffset=799&amp;-hScrollOffset=0&amp;-contentVer=%272.0%27&amp;-content=%27%5B%5D%27&amp;*baseType=%27Ms.Content.ContentUpdate%27&amp;*title=%27Model-Based%20Conventions%20-%20EF6%20%7C%20Microsoft%20Docs%27&amp;*cookieEnabled=true&amp;*isJs=true&amp;*isDomComplete=false&amp;*isLoggedIn=false&amp;ext-javascript-ver=%271.1%27&amp;ext-javascript-libVer=%274.2.14%27&amp;ext-javascript-domain=%27docs.microsoft.com%27&amp;ext-javascript-msfpc=%27GUID%3Db242497d8da2412d9413914ed43a9938%26HASH%3Db242%26LV%3D202001%26V%3D4%26LU%3D1579719672137%27&amp;ext-javascript-userConsent=true&amp;ext-user-localId=%27t%3A2DE60ABB77E1626C0DF604EC73E161F6%27&amp;$mscomCookies=false"></script></head>
+
+<body lang="en-us" dir="ltr"><div style="display: none;" id="lightningjs-usabilla_live"><div><iframe frameborder="0" id="lightningjs-frame-usabilla_live" src="./Model-Based Conventions_files/saved_resource.html"></iframe></div></div>
+<div class="header-holder has-default-focus">
+	<a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#main" class="skip-to-main-link has-outline-color-text visually-hidden-until-focused is-fixed has-inner-focus focus-visible has-top-zero has-left-zero has-right-zero has-padding-medium has-text-centered has-body-background-medium" tabindex="1">Skip to main content</a>
+		<div id="headerAreaHolder" data-bi-name="header">
+<header role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization"><!----><!----><div class="nav-bar"><!---->  <a class="nav-bar-button has-padding-left-medium has-padding-left-none-tablet" itemprop="url" href="https://www.microsoft.com/" aria-label="Microsoft">
+		<div class="nav-bar-logo has-background-image theme-display is-light" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+		<div class="nav-bar-logo has-background-image theme-display is-dark is-high-contrast" role="presentation" aria-hidden="true" itemprop="logo" itemscope="itemscope"></div>
+	</a> 
+			
+		<div class="nav-bar-item is-hidden-tablet">
+			<button class="nav-bar-button is-size-5 is-text has-body-background has-padding-none" title="Global navigation" aria-expanded="false">
+				<span class="has-text-weight-semibold has-padding-left-small has-padding-bottom-extra-small"><!---->Documentation<!----></span>
+				<div class="nav-bar-burger has-padding-none has-height-zero">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span class="is-visually-hidden"><!---->Global navigation<!----></span>
+				</div>
+			</button>
+		</div>
+	
+			
+		<nav class="nav-bar-nav" role="navigation" aria-label="Global">
+			<ul class="nav-bar-nav-list">
+				
+		<li class="nav-bar-item is-category has-spacing">
+			<a class="nav-bar-button title has-hover-underline is-4" itemprop="url" href="https://docs.microsoft.com/en-us/">
+				<span><!---->Docs<!----></span>
+			</a>
+		</li>
+	
+				<!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline is-active" href="https://docs.microsoft.com/en-us/">
+					<span><!---->Documentation<!----></span>
+				</a>
+		  </li><!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline " href="https://docs.microsoft.com/en-us/learn/">
+					<span><!---->Learn<!----></span>
+				</a>
+		  </li><!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline " href="https://docs.microsoft.com/en-us/answers/products/">
+					<span><!---->Q&amp;A<!----></span>
+				</a>
+		  </li><!----> <li class="nav-bar-item">
+				<a class="nav-bar-button has-hover-underline " href="https://docs.microsoft.com/en-us/samples/browse/">
+					<span><!---->Code Samples<!----></span>
+				</a>
+		  </li><!----> <li class="dropdown nav-bar-item" hidden="">
+		<button aria-expanded="false" class="dropdown-trigger nav-bar-button has-hover-underline" aria-controls="ax-294">
+			<span><!---->More<!----></span>
+			<span class="nav-bar-button-chevron" aria-hidden="true">
+				<span class="docon docon-chevron-down-light expanded-indicator"></span>
+			</span>
+		</button>
+		<ul class="dropdown-menu" id="ax-294" aria-label="More">
+			<!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/en-us/"><!---->Documentation<!----></a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/en-us/learn/"><!---->Learn<!----></a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/en-us/answers/products/"><!---->Q&amp;A<!----></a>
+				</li>
+		  <!---->
+				<li class="nav-bar-item" hidden="">
+					<a class="nav-bar-button" href="https://docs.microsoft.com/en-us/samples/browse/"><!---->Code Samples<!----></a>
+				</li>
+		  <!---->
+		</ul>
+	</li><!---->
+			</ul>
+		</nav>
+	
+			<span class="nav-bar-spacer is-hidden-mobile"></span>
+			
+		<div class="nav-bar-item nav-bar-search-form-item has-padding-left-extra-small has-padding-none-tablet" id="ax-295" hidden="">
+			
+		<form class="is-flex" method="GET" name="searchForm" role="search" id="searchForm" aria-label="Search" aria-expanded="false" action="https://docs.microsoft.com/en-us/search/">
+			<div class="autocomplete" data-bi-name="autocomplete"><!----> <div class="control ">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="site-search-input" class="autocomplete-input input   is-small" type="search" name="search" aria-expanded="false" aria-owns="ax-296-listbox" aria-activedescendant="" aria-label="Search" placeholder="Search">
+
+				<span aria-hidden="true" class="icon is-small is-left" hidden="">
+					<span class="has-text-primary docon docon-undefined"></span>
+				</span>
+
+				<span class="autocomplete-loader loader has-text-primary" aria-hidden="true" hidden=""></span>
+			</div>
+
+			<ul class="autocomplete-suggestions is-vertically-scrollable" role="listbox" id="ax-296-listbox" hidden="">
+				
+			</ul><!----></div>
+			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+			<input name="category" hidden="" value="All">
+			<input name="scope" hidden="" value="Entity Framework">
+			
+			
+		</form>
+	
+		</div>
+		
+					<div class="nav-bar-item nav-bar-search-form-item has-flex-grow-none
+						has-flex-shrink-none has-margin-right-extra-small has-padding-left-extra-small has-padding-none-tablet">
+						<!-- hidden when the width drops to tablet -->
+						
+		<form class="is-flex" method="GET" name="searchForm" role="search" id="searchFormDesktop" aria-label="Search" aria-expanded="false" action="https://docs.microsoft.com/en-us/search/">
+			<div class="autocomplete" data-bi-name="autocomplete"><!----> <div class="control has-icons-left">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="ax-297" class="autocomplete-input input control has-icons-left  is-small" type="search" name="search" aria-expanded="false" aria-owns="ax-298-listbox" aria-activedescendant="" aria-label="Search" placeholder="Search">
+
+				<span aria-hidden="true" class="icon is-small is-left">
+					<span class="has-text-primary docon docon-search"></span>
+				</span>
+
+				<span class="autocomplete-loader loader has-text-primary" aria-hidden="true" hidden=""></span>
+			</div>
+
+			<ul class="autocomplete-suggestions is-vertically-scrollable" role="listbox" id="ax-298-listbox" hidden="">
+				
+			</ul><!----></div>
+			<!-- mobile safari will not dispatch submit event unless there's a submit button that is not display:none -->
+			<button type="submit" class="visually-hidden" tabindex="-1" aria-hidden="true"></button>
+			<input name="category" hidden="" value="All">
+			<input name="scope" hidden="" value="Entity Framework">
+			
+			
+		</form>
+	
+					</div>
+			  
+		<div class="nav-bar-item has-flex-grow-mobile has-flex-shrink-mobile" hidden="">
+			<button id="form-expander" class="nav-bar-button has-hover-underline is-full-width has-padding-medium has-flex-justify-content-end-mobile" title="Search" aria-expanded="false" aria-controls="ax-295">
+				
+		<span class="is-visually-hidden-mobile"><!---->Search<!----></span>
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-search"></span>
+		</span>
+	
+			</button>
+		</div>
+	
+			
+		<div class="nav-bar-item is-size-7 is-hidden-mobile has-padding-left-extra-small">
+			
+		<a class="docs-sign-in auth-status-determined not-authenticated button is-text has-inner-focus has-text-primary is-small" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#">
+			Sign in
+		</a>
+	 
+		<div class="dropdown has-caret auth-status-determined authenticated">
+			<button class="dropdown-trigger button is-text has-padding-none has-background-transparent" aria-controls="user-menu" aria-expanded="false" aria-label="Your Account">
+				<figure class="image is-36x36">
+					<img class="has-body-background-medium is-rounded" alt="" data-profile-property="avatarUrl">
+				</figure>
+			</button>
+			<div class="dropdown-menu box" id="user-menu" role="menu">
+				<div class="media is-user-dir">
+					<div class="media-left">
+						<figure class="image is-48x48" aria-hidden="true">
+							<img class="has-body-background-medium is-rounded" aria-labelledby="displayName" data-profile-property="avatarUrl">
+						</figure>
+					</div>
+					<div class="media-content">
+						<p class="title is-size-4">
+							<span id="displayName" class="is-inline-truncated has-max-width-200" data-profile-property="displayName"></span>
+						</p>
+						<p class="subtitle is-size-7 has-margin-bottom-none">
+							<span class="is-inline-truncated has-max-width-200" data-profile-property="upn"></span>
+						</p>
+					</div>
+				</div>
+				<ul>
+					<li><a href="https://docs.microsoft.com/profile" data-profile-property="profileUrl"><!---->Profile<!----></a></li>
+					<li><a href="https://docs.microsoft.com/profile" data-profile-property="bookmarksUrl"><!---->Bookmarks<!----></a></li>
+					<li><a href="https://docs.microsoft.com/profile" data-profile-property="collectionsUrl"><!---->Collections<!----></a></li>
+				</ul>
+				<div class="has-border-top">
+					<a class="docs-sign-out" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#"><!---->Sign out<!----></a>
+				</div>
+			</div>
+		</div>
+	
+		</div>
+	
+		 <!----></div></header>		</div>
+		<div class="content-header uhf-container has-padding has-default-focus has-border-bottom-none" data-bi-name="content-header">
+			<nav class="has-padding-none has-padding-left-medium-tablet has-padding-right-medium-tablet has-padding-left-none-uhf-tablet has-padding-left-none-uhf-tablet has-padding-none-desktop has-flex-grow" data-bi-name="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList" role="navigation" aria-label="Breadcrumb">
+				<ul id="page-breadcrumbs" class="breadcrumbs"><!---->
+			<!----> <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					 <a itemprop="item" href="https://docs.microsoft.com/en-us/">
+								<span itemprop="name">
+									Docs
+								</span>
+						  </a>
+					<meta itemprop="position" content="1">
+				</li><!----> <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					 <a itemprop="item" href="https://docs.microsoft.com/en-us/ef/">
+								<span itemprop="name">
+									Entity Framework
+								</span>
+						  </a>
+					<meta itemprop="position" content="2">
+				</li><!----> <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					 <a itemprop="item" href="https://docs.microsoft.com/en-us/ef/ef6/">
+								<span itemprop="name">
+									Entity Framework 6
+								</span>
+						  </a>
+					<meta itemprop="position" content="3">
+				</li><!----> <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					 <a itemprop="item" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/">
+								<span itemprop="name">
+									Create a model
+								</span>
+						  </a>
+					<meta itemprop="position" content="4">
+				</li><!----> <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					 <span itemprop="name">
+								Use Code First
+						  </span>
+					<meta itemprop="position" content="5">
+				</li><!----> <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					 <a itemprop="item" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/built-in">
+								<span itemprop="name">
+									Conventions
+								</span>
+						  </a>
+					<meta itemprop="position" content="6">
+				</li><!----> <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+					 <span itemprop="name">
+								Model conventions
+						  </span>
+					<meta itemprop="position" content="7">
+				</li><!---->
+		<!----></ul>
+			</nav>
+		<div class="content-header-controls">
+			<button type="button" class="contents-button button" data-bi-name="contents-expand" aria-haspopup="true">
+				<span class="icon"><span class="docon docon-menu" aria-hidden="true"></span></span>
+				<span>Contents</span>
+			</button>
+		</div>
+		<div class="content-header-controls exit-focus">
+			<button type="button" class="ap-collapse-behavior ap-expanded button" data-bi-name="ap-collapse" aria-controls="action-panel">
+				<span class="icon"><span class="docon docon-exit-mode" aria-hidden="true"></span></span>
+				<span>Exit focus mode</span>
+			</button>
+		</div>
+		<div class="has-padding-none-tablet has-padding-medium is-size-7 is-flex-touch has-flex-justify-content-space-between-touch has-flex-grow">
+			<ul class="is-hidden-mobile action-list has-flex-justify-content-start has-flex-justify-content-end-tablet is-flex is-flex-row has-flex-wrap has-flex-grow is-unstyled">
+				<li>
+					<button type="button" class="bookmark button is-text has-inner-focus is-small is-icon-only-touch" data-list-type="bookmarks" data-bi-name="bookmark" title="Add bookmark for Model-Based Conventions - EF6 | Microsoft Docs" aria-pressed="false">
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-single-bookmark"></span>
+						</span>
+						<span class="bookmark-status is-visually-hidden-touch is-hidden-portrait">Bookmark</span>
+					</button>
+				</li>
+					<li id="feedback-section-link">
+						<a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#feedback" class="button is-text has-inner-focus is-small is-icon-only-touch" data-bi-name="comments" title="Send feedback about this page">
+							<span class="icon">
+								<span class="docon docon-comment-lines" aria-hidden="true"></span>
+							</span>
+							<span class="is-visually-hidden-touch is-hidden-portrait">Feedback</span>
+						</a>
+					</li>
+						<li id="contenteditbtn">
+							<a href="https://github.com/dotnet/EntityFramework.Docs/blob/master/entity-framework/ef6/modeling/code-first/conventions/model.md" class="button is-text has-inner-focus is-icon-only-touch is-small" title="Edit This Document" data-bi-name="edit" data-original_content_git_url="https://github.com/dotnet/EntityFramework.Docs/blob/live/entity-framework/ef6/modeling/code-first/conventions/model.md" data-original_content_git_url_template="{repo}/blob/{branch}/entity-framework/ef6/modeling/code-first/conventions/model.md" data-pr_repo="" data-pr_branch="">
+							<span class="icon">
+								<span class="docon docon-edit-outline" aria-hidden="true"></span>
+							</span>
+							<span class="is-visually-hidden-touch is-hidden-portrait">Edit</span>
+						</a>
+					</li>
+				<li>
+<div class="sharing dropdown has-caret">
+	<button class="dropdown-trigger button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small is-icon-only-touch" aria-controls="sharing-menu" aria-expanded="false" title="Share This Document" data-bi-name="share">
+		<span class="icon" aria-hidden="true">
+			<span class="docon docon-sharing"></span>
+		</span>
+		<span class="is-visually-hidden-touch is-hidden-portrait">Share</span>
+	</button>
+	<div class="dropdown-menu has-padding-small" id="sharing-menu">
+		<ul data-bi-name="share-links">
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-twitter" data-bi-name="twitter" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fef%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel%3FWT.mc_id%3Dtwitter&amp;text=Model-Based%20Conventions%20-%20EF6%20%7C%20Microsoft%20Docs&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fef%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel%3FWT.mc_id%3Dtwitter">
+					<span class="icon">
+						<span class="docon docon-brand-twitter has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Twitter</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-linkedin" data-bi-name="linkedin" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fef%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel%3FWT.mc_id%3Dlinkedin">
+					<span class="icon">
+						<span class="docon docon-brand-linkedin has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>LinkedIn</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-facebook" data-bi-name="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fef%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel%3FWT.mc_id%3Dfacebook">
+					<span class="icon">
+						<span class="docon docon-brand-facebook has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Facebook</span>
+				</a>
+			</li>
+			<li>
+				<a class="button is-text is-fullwidth has-flex-justify-content-start has-inner-focus is-small share-email" data-bi-name="email" href="mailto:?subject=%5BShared%20Article%5D%20Model-Based%20Conventions%20-%20EF6%20%7C%20Microsoft%20Docs&amp;body=Model-Based%20Conventions%20-%20EF6%20%7C%20Microsoft%20Docs%0A%0Ahttps%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fef%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel%3FWT.mc_id%3Demail">
+					<span class="icon">
+						<span class="docon docon-mail-message-fill has-text-primary" aria-hidden="true"></span>
+					</span>
+					<span>Email</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>				</li>
+			</ul>
+			<button type="button" class="has-border contents-button button is-small is-text is-hidden-tablet has-inner-focus" aria-label="Contents" data-bi-name="contents-expand">
+				<span class="icon">
+					<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+				</span>
+				<span>Table of contents</span>
+			</button>
+			<div class="is-invisible"></div>
+			<div class="is-hidden-tablet level-item is-flexible level-right">
+				<button type="button" class="page-actions-button button is-small is-text is-hidden-tablet has-inner-focus has-border is-full-height  has-margin-left-small" aria-label="Page Actions" data-bi-name="pageactions">
+					<span class="icon">
+						<span class="docon docon-more-vertical" aria-hidden="true"></span>
+					</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="disclaimer-holder" class="has-overflow-hidden has-default-focus"></div>
+	</div>
+
+	<div class="mainContainer  uhf-container has-top-padding  has-default-focus" data-bi-name="body">
+
+		<div class="columns has-large-gaps is-gapless-mobile ">
+
+			<div id="left-container" class="left-container is-hidden-mobile column is-one-third-tablet is-one-quarter-desktop">
+				<nav id="affixed-left-container" class="is-fixed is-flex is-flex-column" role="navigation" aria-label="Primary" data-bi-name="left toc" style="width: 274.75px; top: 24px; bottom: 24px;"><form action="javascript:" role="search" aria-label="Search" class="has-margin-bottom-small"><label class="visually-hidden" for="ax-61">Search</label><div class="autocomplete is-block" data-bi-name="autocomplete"><!----> <div class="control has-icons-left">
+				<input role="combobox" maxlength="100" aria-autocomplete="list" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" id="ax-61" class="autocomplete-input input control has-icons-left is-full-width is-small" type="text" aria-expanded="false" aria-owns="ax-62-listbox" aria-activedescendant="" placeholder="Filter by title">
+
+				<span aria-hidden="true" class="icon is-small is-left">
+					<span class="has-text-primary docon docon-filter-settings"></span>
+				</span>
+
+				<span class="autocomplete-loader loader has-text-primary" aria-hidden="true" hidden=""></span>
+			</div>
+
+			<ul class="autocomplete-suggestions is-vertically-scrollable" role="listbox" id="ax-62-listbox" hidden="">
+				
+			</ul><!----></div></form><ul class="tree is-vertically-scrollable has-flex-grow has-flex-shrink" role="tree" aria-label="Table of contents" data-bi-name="tree"><li role="none"><a aria-setsize="4" aria-level="1" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/">Entity Framework</a></li><li class="tree-item" aria-setsize="4" aria-level="1" aria-posinset="2" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>EF Core &amp; EF6</span></li><li class="tree-item" aria-setsize="4" aria-level="1" aria-posinset="3" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Entity Framework Core</span></li><li class="tree-item is-expanded" aria-setsize="4" aria-level="1" aria-posinset="4" role="treeitem" tabindex="-1" aria-expanded="true"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Entity Framework 6</span><ul class="tree-group" role="group"><li role="none"><a aria-setsize="9" aria-level="2" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/ef6/">Overview</a></li><li class="tree-item" aria-setsize="9" aria-level="2" aria-posinset="2" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>What's new</span></li><li role="none"><a aria-setsize="9" aria-level="2" aria-posinset="3" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/ef6/get-started">Get started</a></li><li class="tree-item" aria-setsize="9" aria-level="2" aria-posinset="4" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Fundamentals</span></li><li class="tree-item is-expanded" aria-setsize="9" aria-level="2" aria-posinset="5" role="treeitem" tabindex="-1" aria-expanded="true"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Create a model</span><ul class="tree-group" role="group"><li role="none"><a aria-setsize="3" aria-level="3" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/">Overview</a></li><li class="tree-item is-expanded" aria-setsize="3" aria-level="3" aria-posinset="2" role="treeitem" tabindex="-1" aria-expanded="true"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Use Code First</span><ul class="tree-group" role="group"><li class="tree-item" aria-setsize="7" aria-level="4" aria-posinset="1" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Workflows</span></li><li role="none"><a aria-setsize="7" aria-level="4" aria-posinset="2" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/data-annotations">Data annotations</a></li><li role="none"><a aria-setsize="7" aria-level="4" aria-posinset="3" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/dbsets">DbSets</a></li><li class="tree-item" aria-setsize="7" aria-level="4" aria-posinset="4" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Data types</span></li><li class="tree-item is-expanded" aria-setsize="7" aria-level="4" aria-posinset="5" role="treeitem" tabindex="-1" aria-expanded="true"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Conventions</span><ul class="tree-group" role="group"><li role="none"><a aria-setsize="3" aria-level="5" aria-posinset="1" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/built-in">Built-in conventions</a></li><li role="none"><a aria-setsize="3" aria-level="5" aria-posinset="2" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/custom">Custom conventions</a></li><li role="none"><a aria-setsize="3" aria-level="5" aria-posinset="3" role="treeitem" tabindex="0" class="tree-item is-leaf is-selected" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model" aria-current="page">Model conventions</a></li></ul></li><li class="tree-item" aria-setsize="7" aria-level="4" aria-posinset="6" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Fluent configuration</span></li><li class="tree-item" aria-setsize="7" aria-level="4" aria-posinset="7" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Migrations</span></li></ul></li><li class="tree-item" aria-setsize="3" aria-level="3" aria-posinset="3" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Use EF Designer</span></li></ul></li><li class="tree-item" aria-setsize="9" aria-level="2" aria-posinset="6" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Query data</span></li><li class="tree-item" aria-setsize="9" aria-level="2" aria-posinset="7" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Save data</span></li><li class="tree-item" aria-setsize="9" aria-level="2" aria-posinset="8" role="treeitem" tabindex="-1" aria-expanded="false"><span class="tree-expander" data-bi-name="tree-expander"><span class="tree-expander-indicator docon docon-chevron-right-light" aria-hidden="true"></span>Additional resources</span></li><li role="none"><a aria-setsize="9" aria-level="2" aria-posinset="9" role="treeitem" tabindex="-1" class="tree-item is-leaf" data-bi-name="tree-leaf" href="https://docs.microsoft.com/en-us/dotnet/api/?view=entity-framework-6.2.0">EF6 API reference &gt;&gt;</a></li></ul></li></ul><a class="button is-small is-text has-flex-justify-content-start has-inner-focus has-margin-top-small has-border-top has-border-bottom has-flex-shrink-none" href="https://docs.microsoft.com/en-us/ef/opbuildpdf/toc.pdf?branch=live" data-bi-name="downloadPdf" rel="nofollow"><!----> <span class="icon is-size-8 has-text-subtle">
+				<span aria-hidden="true" class="docon docon-dictionary-download"></span>
+			</span>
+			<span><!---->Download PDF<!----></span><!----></a></nav>
+			</div>
+
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<div class="columns is-gapless-mobile has-large-gaps ">
+
+
+				<div id="main-column" class="column  is-full is-four-fifths-desktop ">
+
+					<main id="main" role="main" class="content " data-bi-name="content" lang="en-us" dir="ltr">
+
+
+
+						<h1 id="model-based-conventions">Model-Based Conventions</h1>
+
+						<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+							<li>
+								<time class="" data-article-date="" aria-label="Article review date" datetime="2016-10-23T00:00:00.000Z" data-article-date-source="ms.date">10/23/2016</time>
+							</li>
+								<li class="readingTime">5 minutes to read</li>
+								<li class="contributors-holder">
+									<a href="https://github.com/dotnet/EntityFramework.Docs/blob/master/entity-framework/ef6/modeling/code-first/conventions/model.md" title="3 Contributors" aria-label="3 Contributors">
+										<ul class="contributors" data-bi-name="contributors" aria-hidden="true">
+													<li><img src="./Model-Based Conventions_files/divega.png" data-src="https://github.com/divega.png?size=32" role="presentation"></li>
+													<li><img src="./Model-Based Conventions_files/Psypher9.png" data-src="https://github.com/Psypher9.png?size=32" role="presentation"></li>
+													<li><img src="./Model-Based Conventions_files/mairaw.png" data-src="https://github.com/mairaw.png?size=32" role="presentation"></li>
+										</ul>
+									</a>
+								</li>
+						</ul>
+
+						<nav id="center-doc-outline" class="doc-outline is-hidden-desktop" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+							<h3>In this article</h3>
+						<ol><li><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#creating-a-convention">Creating a Convention</a></li><li><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#adding-a-convention">Adding a Convention</a></li><li><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#example-discriminator-model-convention">Example: Discriminator Model Convention</a></li><li><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#example-general-ia-renaming-convention">Example: General IA Renaming Convention</a></li><li><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#extending-existing-conventions">Extending Existing Conventions</a></li><li><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#notes">Notes</a></li></ol></nav>
+
+						<!-- <content> -->
+							<div class="alert is-info">
+<p class="alert-title"><span class="docon docon-status-error-outline" aria-hidden="true"></span> Note</p>
+<p><strong>EF6 Onwards Only</strong> - The features, APIs, etc. discussed in this page were introduced in Entity Framework 6. If you are using an earlier version, some or all of the information does not apply.</p>
+</div>
+<p>Model based conventions are an advanced method of convention based model configuration. For most scenarios the <a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/custom" data-linktype="relative-path">Custom Code First Convention API on DbModelBuilder</a> should be used. An understanding of the DbModelBuilder API for conventions is recommended before using model based conventions.</p>
+<p>Model based conventions allow the creation of conventions that affect properties and tables which are not configurable through standard conventions. Examples of these are discriminator columns in table per hierarchy models and Independent Association columns.</p>
+<h2 id="creating-a-convention">Creating a Convention<a class="docon docon-link heading-anchor" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#creating-a-convention" aria-labelledby="creating-a-convention"></a></h2>
+<p>The first step in creating a model based convention is choosing when in the pipeline the convention needs to be applied to the model. There are two types of model conventions, Conceptual (C-Space) and Store (S-Space). A C-Space convention is applied to the model that the application builds, whereas an S-Space convention is applied to the version of the model that represents the database and controls things such as how automatically-generated columns are named.</p>
+<p>A model convention is a class that extends from either IConceptualModelConvention or IStoreModelConvention.  These interfaces both accept a generic type that can be of type MetadataItem which is used to filter the data type that the convention applies to.</p>
+<h2 id="adding-a-convention">Adding a Convention<a class="docon docon-link heading-anchor" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#adding-a-convention" aria-labelledby="adding-a-convention"></a></h2>
+<p>Model conventions are added in the same way as regular conventions classes. In the <strong>OnModelCreating</strong> method, add the convention to the list of conventions for a model.</p>
+<div class="codeHeader" id="code-try-0" data-bi-name="code-header"><span class="language">C#</span><button type="button" class="action is-relative" data-bi-name="copy" aria-label="Copy code">
+				<span class="icon">
+					<span class="docon docon-edit-copy" role="presentation"></span>
+				</span>
+				<span>Copy</span>
+				<div class="successful-copy-alert is-absolute has-right-zero has-top-zero has-left-zero has-bottom-zero is-flex has-flex-align-items-center has-flex-justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+					<span class="icon is-size-4">
+						<span class="docon docon-check-mark" role="presentation"></span>
+					</span>
+				</div>
+			</button></div><pre tabindex="0" class="has-inner-focus"><code class="lang-csharp" data-author-content="using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+public class BlogContext : DbContext  
+{  
+    public DbSet&lt;Post&gt; Posts { get; set; }  
+    public DbSet&lt;Comment&gt; Comments { get; set; }  
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)  
+    {  
+        modelBuilder.Conventions.Add&lt;MyModelBasedConvention&gt;();  
+    }  
+}
+"><span><span class="hljs-keyword">using</span> System.Data.Entity;
+<span class="hljs-keyword">using</span> System.Data.Entity.Core.Metadata.Edm;
+<span class="hljs-keyword">using</span> System.Data.Entity.Infrastructure;
+<span class="hljs-keyword">using</span> System.Data.Entity.ModelConfiguration.Conventions;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">BlogContext</span> : <span class="hljs-title">DbContext</span>  
+{  
+    <span class="hljs-keyword">public</span> DbSet&lt;Post&gt; Posts { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }  
+    <span class="hljs-keyword">public</span> DbSet&lt;Comment&gt; Comments { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }  
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnModelCreating</span>(<span class="hljs-params">DbModelBuilder modelBuilder</span>)</span>  
+    {  
+        modelBuilder.Conventions.Add&lt;MyModelBasedConvention&gt;();  
+    }  
+}
+</span></code></pre>
+<p>A convention can also be added in relation to another convention using the Conventions.AddBefore&lt;&gt; or Conventions.AddAfter&lt;&gt; methods. For more information about the conventions that Entity Framework applies see the notes section.</p>
+<div class="codeHeader" id="code-try-1" data-bi-name="code-header"><span class="language">C#</span><button type="button" class="action is-relative" data-bi-name="copy" aria-label="Copy code">
+				<span class="icon">
+					<span class="docon docon-edit-copy" role="presentation"></span>
+				</span>
+				<span>Copy</span>
+				<div class="successful-copy-alert is-absolute has-right-zero has-top-zero has-left-zero has-bottom-zero is-flex has-flex-align-items-center has-flex-justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+					<span class="icon is-size-4">
+						<span class="docon docon-check-mark" role="presentation"></span>
+					</span>
+				</div>
+			</button></div><pre tabindex="0" class="has-inner-focus"><code class="lang-csharp" data-author-content="protected override void OnModelCreating(DbModelBuilder modelBuilder)
+{
+    modelBuilder.Conventions.AddAfter&lt;IdKeyDiscoveryConvention&gt;(new MyModelBasedConvention());
+}
+"><span><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnModelCreating</span>(<span class="hljs-params">DbModelBuilder modelBuilder</span>)</span>
+{
+    modelBuilder.Conventions.AddAfter&lt;IdKeyDiscoveryConvention&gt;(<span class="hljs-keyword">new</span> MyModelBasedConvention());
+}
+</span></code></pre>
+<h2 id="example-discriminator-model-convention">Example: Discriminator Model Convention<a class="docon docon-link heading-anchor" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#example-discriminator-model-convention" aria-labelledby="example-discriminator-model-convention"></a></h2>
+<p>Renaming columns generated by EF is an example of something that you can’t do with the other conventions APIs.  This is a situation where using model conventions is your only option.</p>
+<p>An example of how to use a model based convention to configure generated columns is customizing the way discriminator columns are named.  Below is an example of a simple model based convention that renames every column in the model named “Discriminator” to “EntityType”.  This includes columns that the developer simply named “Discriminator”. Since the “Discriminator” column is a generated column this needs to run in S-Space.</p>
+<div class="codeHeader" id="code-try-2" data-bi-name="code-header"><span class="language">C#</span><button type="button" class="action is-relative" data-bi-name="copy" aria-label="Copy code">
+				<span class="icon">
+					<span class="docon docon-edit-copy" role="presentation"></span>
+				</span>
+				<span>Copy</span>
+				<div class="successful-copy-alert is-absolute has-right-zero has-top-zero has-left-zero has-bottom-zero is-flex has-flex-align-items-center has-flex-justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+					<span class="icon is-size-4">
+						<span class="docon docon-check-mark" role="presentation"></span>
+					</span>
+				</div>
+			</button></div><pre tabindex="0" class="has-inner-focus"><code class="lang-csharp" data-author-content="using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+class DiscriminatorRenamingConvention : IStoreModelConvention&lt;EdmProperty&gt;  
+{  
+    public void Apply(EdmProperty property, DbModel model)  
+    {            
+        if (property.Name == &quot;Discriminator&quot;)  
+        {  
+            property.Name = &quot;EntityType&quot;;  
+        }  
+    }  
+}
+"><span><span class="hljs-keyword">using</span> System.Data.Entity;
+<span class="hljs-keyword">using</span> System.Data.Entity.Core.Metadata.Edm;
+<span class="hljs-keyword">using</span> System.Data.Entity.Infrastructure;
+<span class="hljs-keyword">using</span> System.Data.Entity.ModelConfiguration.Conventions;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title">DiscriminatorRenamingConvention</span> : <span class="hljs-title">IStoreModelConvention</span>&lt;<span class="hljs-title">EdmProperty</span>&gt;  
+{  
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Apply</span>(<span class="hljs-params">EdmProperty property, DbModel model</span>)</span>  
+    {            
+        <span class="hljs-keyword">if</span> (property.Name == <span class="hljs-string">"Discriminator"</span>)  
+        {  
+            property.Name = <span class="hljs-string">"EntityType"</span>;  
+        }  
+    }  
+}
+</span></code></pre>
+<h2 id="example-general-ia-renaming-convention">Example: General IA Renaming Convention<a class="docon docon-link heading-anchor" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#example-general-ia-renaming-convention" aria-labelledby="example-general-ia-renaming-convention"></a></h2>
+<p>Another more complicated example of model based conventions in action is to configure the way that Independent Associations (IAs) are named.  This is a situation where Model conventions are applicable because IAs are generated by EF and aren’t present in the model that the DbModelBuilder API can access.</p>
+<p>When EF generates an IA, it creates a column named EntityType_KeyName. For example, for an association named Customer with a key column named CustomerId it would generate a column named Customer_CustomerId. The following convention strips the ‘_’ character out of the column name that is generated for the IA.</p>
+<div class="codeHeader" id="code-try-3" data-bi-name="code-header"><span class="language">C#</span><button type="button" class="action is-relative" data-bi-name="copy" aria-label="Copy code">
+				<span class="icon">
+					<span class="docon docon-edit-copy" role="presentation"></span>
+				</span>
+				<span>Copy</span>
+				<div class="successful-copy-alert is-absolute has-right-zero has-top-zero has-left-zero has-bottom-zero is-flex has-flex-align-items-center has-flex-justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+					<span class="icon is-size-4">
+						<span class="docon docon-check-mark" role="presentation"></span>
+					</span>
+				</div>
+			</button></div><pre tabindex="0" class="has-inner-focus"><code class="lang-csharp" data-author-content="using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+// Provides a convention for fixing the independent association (IA) foreign key column names.  
+public class ForeignKeyNamingConvention : IStoreModelConvention&lt;AssociationType&gt;
+{
+
+    public void Apply(AssociationType association, DbModel model)
+    {
+        // Identify ForeignKey properties (including IAs)  
+        if (association.IsForeignKey)
+        {
+            // rename FK columns  
+            var constraint = association.Constraint;
+            if (DoPropertiesHaveDefaultNames(constraint.FromProperties, constraint.ToRole.Name, constraint.ToProperties))
+            {
+                NormalizeForeignKeyProperties(constraint.FromProperties);
+            }
+            if (DoPropertiesHaveDefaultNames(constraint.ToProperties, constraint.FromRole.Name, constraint.FromProperties))
+            {
+                NormalizeForeignKeyProperties(constraint.ToProperties);
+            }
+        }
+    }
+
+    private bool DoPropertiesHaveDefaultNames(ReadOnlyMetadataCollection&lt;EdmProperty&gt; properties, string roleName, ReadOnlyMetadataCollection&lt;EdmProperty&gt; otherEndProperties)
+    {
+        if (properties.Count != otherEndProperties.Count)
+        {
+            return false;
+        }
+
+        for (int i = 0; i &lt; properties.Count; ++i)
+        {
+            if (!properties[i].Name.EndsWith(&quot;_&quot; + otherEndProperties[i].Name))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void NormalizeForeignKeyProperties(ReadOnlyMetadataCollection&lt;EdmProperty&gt; properties)
+    {
+        for (int i = 0; i &lt; properties.Count; ++i)
+        {
+            int underscoreIndex = properties[i].Name.IndexOf(&#39;_&#39;);
+            if (underscoreIndex &gt; 0)
+            {
+                properties[i].Name = properties[i].Name.Remove(underscoreIndex, 1);
+            }                 
+        }
+    }
+}
+"><span><span class="hljs-keyword">using</span> System.Data.Entity;
+<span class="hljs-keyword">using</span> System.Data.Entity.Core.Metadata.Edm;
+<span class="hljs-keyword">using</span> System.Data.Entity.Infrastructure;
+<span class="hljs-keyword">using</span> System.Data.Entity.ModelConfiguration.Conventions;
+
+<span class="hljs-comment">// Provides a convention for fixing the independent association (IA) foreign key column names.  </span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ForeignKeyNamingConvention</span> : <span class="hljs-title">IStoreModelConvention</span>&lt;<span class="hljs-title">AssociationType</span>&gt;
+{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Apply</span>(<span class="hljs-params">AssociationType association, DbModel model</span>)</span>
+    {
+        <span class="hljs-comment">// Identify ForeignKey properties (including IAs)  </span>
+        <span class="hljs-keyword">if</span> (association.IsForeignKey)
+        {
+            <span class="hljs-comment">// rename FK columns  </span>
+            <span class="hljs-keyword">var</span> constraint = association.Constraint;
+            <span class="hljs-keyword">if</span> (DoPropertiesHaveDefaultNames(constraint.FromProperties, constraint.ToRole.Name, constraint.ToProperties))
+            {
+                NormalizeForeignKeyProperties(constraint.FromProperties);
+            }
+            <span class="hljs-keyword">if</span> (DoPropertiesHaveDefaultNames(constraint.ToProperties, constraint.FromRole.Name, constraint.FromProperties))
+            {
+                NormalizeForeignKeyProperties(constraint.ToProperties);
+            }
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">DoPropertiesHaveDefaultNames</span>(<span class="hljs-params">ReadOnlyMetadataCollection&lt;EdmProperty&gt; properties, <span class="hljs-keyword">string</span> roleName, ReadOnlyMetadataCollection&lt;EdmProperty&gt; otherEndProperties</span>)</span>
+    {
+        <span class="hljs-keyword">if</span> (properties.Count != otherEndProperties.Count)
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; properties.Count; ++i)
+        {
+            <span class="hljs-keyword">if</span> (!properties[i].Name.EndsWith(<span class="hljs-string">"_"</span> + otherEndProperties[i].Name))
+            {
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">NormalizeForeignKeyProperties</span>(<span class="hljs-params">ReadOnlyMetadataCollection&lt;EdmProperty&gt; properties</span>)</span>
+    {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; properties.Count; ++i)
+        {
+            <span class="hljs-keyword">int</span> underscoreIndex = properties[i].Name.IndexOf(<span class="hljs-string">'_'</span>);
+            <span class="hljs-keyword">if</span> (underscoreIndex &gt; <span class="hljs-number">0</span>)
+            {
+                properties[i].Name = properties[i].Name.Remove(underscoreIndex, <span class="hljs-number">1</span>);
+            }                 
+        }
+    }
+}
+</span></code></pre>
+<h2 id="extending-existing-conventions">Extending Existing Conventions<a class="docon docon-link heading-anchor" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#extending-existing-conventions" aria-labelledby="extending-existing-conventions"></a></h2>
+<p>If you need to write a convention that is similar to one of the conventions that Entity Framework already applies to your model you can always extend that convention to avoid having to rewrite it from scratch.  An example of this is to replace the existing Id matching convention with a custom one.   An added benefit to overriding the key convention is that the overridden method will get called only if there is no key already detected or explicitly configured. A list of conventions that used by Entity Framework is available here: <a href="https://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx" data-linktype="external">http://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx</a>.</p>
+<div class="codeHeader" id="code-try-4" data-bi-name="code-header"><span class="language">C#</span><button type="button" class="action is-relative" data-bi-name="copy" aria-label="Copy code">
+				<span class="icon">
+					<span class="docon docon-edit-copy" role="presentation"></span>
+				</span>
+				<span>Copy</span>
+				<div class="successful-copy-alert is-absolute has-right-zero has-top-zero has-left-zero has-bottom-zero is-flex has-flex-align-items-center has-flex-justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+					<span class="icon is-size-4">
+						<span class="docon docon-check-mark" role="presentation"></span>
+					</span>
+				</div>
+			</button></div><pre tabindex="0" class="has-inner-focus"><code class="lang-csharp" data-author-content="using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;  
+
+// Convention to detect primary key properties.
+// Recognized naming patterns in order of precedence are:
+// 1. &#39;Key&#39;
+// 2. [type name]Key
+// Primary key detection is case insensitive.
+public class CustomKeyDiscoveryConvention : KeyDiscoveryConvention
+{
+    private const string Id = &quot;Key&quot;;
+
+    protected override IEnumerable&lt;EdmProperty&gt; MatchKeyProperty(
+        EntityType entityType, IEnumerable&lt;EdmProperty&gt; primitiveProperties)
+    {
+        Debug.Assert(entityType != null);
+        Debug.Assert(primitiveProperties != null);
+
+        var matches = primitiveProperties
+            .Where(p =&gt; Id.Equals(p.Name, StringComparison.OrdinalIgnoreCase));
+
+        if (!matches.Any())
+       {
+            matches = primitiveProperties
+                .Where(p =&gt; (entityType.Name + Id).Equals(p.Name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        // If the number of matches is more than one, then multiple properties matched differing only by
+        // case--for example, &quot;Key&quot; and &quot;key&quot;.  
+        if (matches.Count() &gt; 1)
+        {
+            throw new InvalidOperationException(&quot;Multiple properties match the key convention&quot;);
+        }
+
+        return matches;
+    }
+}
+"><span><span class="hljs-keyword">using</span> System.Data.Entity;
+<span class="hljs-keyword">using</span> System.Data.Entity.Core.Metadata.Edm;
+<span class="hljs-keyword">using</span> System.Data.Entity.Infrastructure;
+<span class="hljs-keyword">using</span> System.Data.Entity.ModelConfiguration.Conventions;
+<span class="hljs-keyword">using</span> System.Linq;  
+
+<span class="hljs-comment">// Convention to detect primary key properties.</span>
+<span class="hljs-comment">// Recognized naming patterns in order of precedence are:</span>
+<span class="hljs-comment">// 1. 'Key'</span>
+<span class="hljs-comment">// 2. [type name]Key</span>
+<span class="hljs-comment">// Primary key detection is case insensitive.</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CustomKeyDiscoveryConvention</span> : <span class="hljs-title">KeyDiscoveryConvention</span>
+{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">string</span> Id = <span class="hljs-string">"Key"</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> IEnumerable&lt;EdmProperty&gt; <span class="hljs-title">MatchKeyProperty</span>(<span class="hljs-params">
+        EntityType entityType, IEnumerable&lt;EdmProperty&gt; primitiveProperties</span>)</span>
+    {
+        Debug.Assert(entityType != <span class="hljs-literal">null</span>);
+        Debug.Assert(primitiveProperties != <span class="hljs-literal">null</span>);
+
+        <span class="hljs-keyword">var</span> matches = primitiveProperties
+            .Where(p =&gt; Id.Equals(p.Name, StringComparison.OrdinalIgnoreCase));
+
+        <span class="hljs-keyword">if</span> (!matches.Any())
+       {
+            matches = primitiveProperties
+                .Where(p =&gt; (entityType.Name + Id).Equals(p.Name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        <span class="hljs-comment">// If the number of matches is more than one, then multiple properties matched differing only by</span>
+        <span class="hljs-comment">// case--for example, "Key" and "key".  </span>
+        <span class="hljs-keyword">if</span> (matches.Count() &gt; <span class="hljs-number">1</span>)
+        {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> InvalidOperationException(<span class="hljs-string">"Multiple properties match the key convention"</span>);
+        }
+
+        <span class="hljs-keyword">return</span> matches;
+    }
+}
+</span></code></pre>
+<p>We then need to add our new convention before the existing key convention. After we add the CustomKeyDiscoveryConvention, we can remove the IdKeyDiscoveryConvention.  If we didn’t remove the existing IdKeyDiscoveryConvention this convention would still take precedence over the Id discovery convention since it is run first, but in the case where no “key” property is found, the “id” convention will run.  We see this behavior because each convention sees the model as updated by the previous convention (rather than operating on it independently and all being combined together) so that if for example, a previous convention updated a column name to match something of interest to your custom convention (when before that the name was not of interest) then it will apply to that column.</p>
+<div class="codeHeader" id="code-try-5" data-bi-name="code-header"><span class="language">C#</span><button type="button" class="action is-relative" data-bi-name="copy" aria-label="Copy code">
+				<span class="icon">
+					<span class="docon docon-edit-copy" role="presentation"></span>
+				</span>
+				<span>Copy</span>
+				<div class="successful-copy-alert is-absolute has-right-zero has-top-zero has-left-zero has-bottom-zero is-flex has-flex-align-items-center has-flex-justify-content-center has-text-success-invert has-background-success is-transparent" aria-hidden="true">
+					<span class="icon is-size-4">
+						<span class="docon docon-check-mark" role="presentation"></span>
+					</span>
+				</div>
+			</button></div><pre tabindex="0" class="has-inner-focus"><code class="lang-csharp" data-author-content="public class BlogContext : DbContext
+{
+    public DbSet&lt;Post&gt; Posts { get; set; }
+    public DbSet&lt;Comment&gt; Comments { get; set; }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        modelBuilder.Conventions.AddBefore&lt;IdKeyDiscoveryConvention&gt;(new CustomKeyDiscoveryConvention());
+        modelBuilder.Conventions.Remove&lt;IdKeyDiscoveryConvention&gt;();
+    }
+}
+"><span><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">BlogContext</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-keyword">public</span> DbSet&lt;Post&gt; Posts { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> DbSet&lt;Comment&gt; Comments { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnModelCreating</span>(<span class="hljs-params">DbModelBuilder modelBuilder</span>)</span>
+    {
+        modelBuilder.Conventions.AddBefore&lt;IdKeyDiscoveryConvention&gt;(<span class="hljs-keyword">new</span> CustomKeyDiscoveryConvention());
+        modelBuilder.Conventions.Remove&lt;IdKeyDiscoveryConvention&gt;();
+    }
+}
+</span></code></pre>
+<h2 id="notes">Notes<a class="docon docon-link heading-anchor" href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#notes" aria-labelledby="notes"></a></h2>
+<p>A list of conventions that are currently applied by Entity Framework is available in the MSDN documentation here: <a href="https://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx" data-linktype="external">http://msdn.microsoft.com/library/system.data.entity.modelconfiguration.conventions.aspx</a>.  This list is pulled directly from our source code.  The source code for Entity Framework 6 is available on <a href="https://github.com/aspnet/entityframework6/" data-linktype="external">GitHub</a> and many of the conventions used by Entity Framework are good starting points for custom model based conventions.</p>
+
+						<!-- </content> -->
+
+						</main>
+
+						<!-- recommended content page section -->
+
+							<nav data-bi-name="recommendation-bottom" hidden="" id="recommended-content-center" class="is-hidden-desktop" aria-labelledby="recommended-content-center-title">
+								<h3 id="recommended-content-center-title" class="is-size-2 has-margin-top-large has-margin-bottom-small">Related Articles</h3>
+							</nav>
+
+						<!-- end recommended content page section -->
+
+						<!-- page rating section -->
+								<div class="is-hidden-desktop has-border-top has-margin-top-large has-padding-top-small">
+									
+									
+<div class="feedback-verbatim has-border-bottom has-padding-bottom-small has-margin-bottom-small" data-bi-name="rating">
+    <div class="binary-rating">
+        <div class="binary-rating-buttons">
+            <h3 class="has-text-weight-semibold has-margin-top-none has-margin-bottom-small">Is this page helpful?</h3>
+            <div>
+                <button class="thumb-rating like has-inner-focus has-padding-left-extra-small has-padding-right-extra-small" title="Yes" data-bi-name="rating-yes" aria-expanded="false" data-bi-sat="1" aria-controls="rating-container-mobile">
+                    <span aria-hidden="true" class="icon docon docon-like"></span>
+                    <span>Yes</span>
+                </button>
+                <button class="thumb-rating dislike has-inner-focus has-padding-none has-padding-right-extra-small" title="No" data-bi-name="rating-no" data-bi-sat="0" aria-expanded="false" aria-controls="rating-container-mobile">
+                    <span aria-hidden="true" class="icon docon docon-dislike"></span>
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+        <form class="feedback-verbatim-form is-hidden" id="rating-container-mobile">
+            <div class="verbatim-textarea box is-relative has-box-shadow-none has-border has-margin-top-small has-padding-extra-small is-size-8">
+                <label for="rating-textarea-mobile" class="visually-hidden">Any additional feedback?</label>
+                <textarea id="rating-textarea-mobile" rows="4" maxlength="999" placeholder="Any additional feedback?" required="" class="textarea has-border-none has-box-shadow-none has-inner-focus"></textarea>
+            </div>
+            <div class="buttons is-right has-margin-top-medium has-margin-right-extra-small">
+                <button class="skip-rating button is-text is-link is-small" type="button">Skip</button>
+                <button class="submit-rating button is-primary is-small" data-bi-name="rating-verbatim" disabled="" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="thankyou-rating is-hidden" tabindex="-1">
+        <p>Thank you.</p>
+    </div>
+</div>								</div>
+						<!-- end page rating section -->
+
+
+						<!-- feedback section -->
+<section class="feedback-section is-relative" data-bi-name="feedback-section">
+
+    <h2 id="feedback" class="is-size-2 has-margin-top-large">Feedback</h2>
+
+    <div class="alert choose-feedback-type has-margin-top-small has-margin-bottom-none">
+        <p aria-hidden="true" id="send-feedback-about" class="has-margin-top-none has-margin-bottom-none">Submit and view feedback for</p>
+
+        <div class="choose-feedback-buttons has-margin-top-large has-margin-bottom-none">
+                <a class="button feedback-type-product has-margin-bottom-small" aria-label="Send feedback about this product" href="https://github.com/dotnet/ef6/issues/new" data-bi-name="product-feedback">
+                    <span>This product</span>
+                    <span aria-hidden="true" class="icon docon docon-navigate-external is-size-2 has-margin-left-none"></span>
+                </a>
+
+			<a class="button feedback-type-product has-margin-bottom-small github-link" aria-label="Send feedback about this page" data-bi-name="create-issue-on-github" href="https://github.com/dotnet/EntityFramework.Docs/issues/new?title=&amp;body=%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20Details%0A%0A%E2%9A%A0%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20docs.microsoft.com%20%E2%9E%9F%20GitHub%20issue%20linking.*%0A%0A*%20ID%3A%20438cecd8-7d2b-f056-d840-28c67b993bdc%0A*%20Version%20Independent%20ID%3A%20852001f3-8cf5-99d6-6798-d321443341e1%0A*%20Content%3A%20%5BModel-Based%20Conventions%20-%20EF6%5D(https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fef%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel)%0A*%20Content%20Source%3A%20%5Bentity-framework%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel.md%5D(https%3A%2F%2Fgithub.com%2Fdotnet%2FEntityFramework.Docs%2Fblob%2Fmaster%2Fentity-framework%2Fef6%2Fmodeling%2Fcode-first%2Fconventions%2Fmodel.md)%0A*%20Product%3A%20**entity-framework**%0A*%20Technology%3A%20**entity-framework-6**%0A*%20GitHub%20Login%3A%20%40divega%0A*%20Microsoft%20Alias%3A%20**avickers**">
+				<span aria-hidden="true" class="docon docon-brand-github has-padding-right-extra-small"></span>
+				<span>This page</span>
+			</a>
+        </div>
+    </div>
+
+    <div class="action-container is-flex has-flex-justify-content-end has-margin-top-small has-margin-bottom-small">
+        <a class="view-on-github" data-bi-name="view-on-github" href="https://github.com/dotnet/EntityFramework.Docs/issues?utf8=%E2%9C%93&amp;q=%22852001f3-8cf5-99d6-6798-d321443341e1%22&amp;in=body">
+            <span aria-hidden="true" class="docon docon-brand-github"></span>
+            <span>View all page feedback</span>
+            <span aria-hidden="true" class="icon docon docon-navigate-external is-size-3"></span>
+        </a>
+    </div>
+</section>
+
+						<!-- end feedback section -->
+
+						<!-- feedback report section -->
+						<!-- end feedback report section -->
+
+						<div class="footerContainer is-visible-interactive has-default-focus ">
+<footer id="footer-interactive" data-bi-name="footer" class="footer-layout">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="https://docs.microsoft.com/en-us/locale?target=https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model" data-bi-name="select-locale"><span class="icon docon docon-world is-size-4 has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text">English (United States)</span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger" aria-controls="theme-menu-interactive" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu-interactive" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start is-selected" data-theme-to="light" aria-pressed="true">
+					<span class="theme-light has-margin-right-small">
+						<span class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start" data-theme-to="dark" aria-pressed="false">
+					<span class="theme-dark has-margin-right-small">
+						<span class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start" data-theme-to="high-contrast" aria-pressed="false">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>© Microsoft 2020</li>
+    </ul>
+</footer>
+						</div>
+					</div>
+
+					<div class="is-size-7 right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" data-bi-name="pageactions" role="complementary" aria-label="Page Actions">
+						<div id="affixed-right-container" class="doc-outline is-fixed is-vertically-scrollable" style="width: 145.641px; top: 24px; bottom: 24px;">
+								
+								
+<div class="feedback-verbatim has-border-bottom has-padding-bottom-small has-margin-bottom-small" data-bi-name="rating">
+    <div class="binary-rating">
+        <div class="binary-rating-buttons">
+            <h3 class="has-text-weight-semibold has-margin-top-none has-margin-bottom-small">Is this page helpful?</h3>
+            <div>
+                <button class="thumb-rating like has-inner-focus has-padding-left-extra-small has-padding-right-extra-small" title="Yes" data-bi-name="rating-yes" aria-expanded="false" data-bi-sat="1" aria-controls="rating-container-desktop">
+                    <span aria-hidden="true" class="icon docon docon-like"></span>
+                    <span>Yes</span>
+                </button>
+                <button class="thumb-rating dislike has-inner-focus has-padding-none has-padding-right-extra-small" title="No" data-bi-name="rating-no" data-bi-sat="0" aria-expanded="false" aria-controls="rating-container-desktop">
+                    <span aria-hidden="true" class="icon docon docon-dislike"></span>
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+        <form class="feedback-verbatim-form is-hidden" id="rating-container-desktop">
+            <div class="verbatim-textarea box is-relative has-box-shadow-none has-border has-margin-top-small has-padding-extra-small is-size-8">
+                <label for="rating-textarea-desktop" class="visually-hidden">Any additional feedback?</label>
+                <textarea id="rating-textarea-desktop" rows="4" maxlength="999" placeholder="Any additional feedback?" required="" class="textarea has-border-none has-box-shadow-none has-inner-focus"></textarea>
+            </div>
+            <div class="buttons is-right has-margin-top-medium has-margin-right-extra-small">
+                <button class="skip-rating button is-text is-link is-small" type="button">Skip</button>
+                <button class="submit-rating button is-primary is-small" data-bi-name="rating-verbatim" disabled="" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="thankyou-rating is-hidden" tabindex="-1">
+        <p>Thank you.</p>
+    </div>
+</div>								<nav data-bi-name="recommendation-sidebar" hidden="" id="recommended-content-nav" role="navigation" aria-labelledby="recommended-content-nav-title">
+									<h3 id="recommended-content-nav-title">Related Articles</h3>
+								</nav>
+							<nav id="side-doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="Article Outline">
+								<h3>In this article</h3>
+							<ol><li class="selected"><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#creating-a-convention">Creating a Convention</a></li><li class=""><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#adding-a-convention">Adding a Convention</a></li><li class=""><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#example-discriminator-model-convention">Example: Discriminator Model Convention</a></li><li class=""><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#example-general-ia-renaming-convention">Example: General IA Renaming Convention</a></li><li><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#extending-existing-conventions">Extending Existing Conventions</a></li><li><a href="https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model#notes">Notes</a></li></ol></nav>
+						</div>
+					</div>
+
+					<!--end of div.columns -->
+				</div>
+
+			<!--end of .primary-holder -->
+			</section>
+
+			<aside id="interactive-container" class="interactive-container is-visible-interactive column has-body-background-dark ">
+			</aside>
+		</div>
+
+		<!--end of .mainContainer -->
+	</div>
+
+	<div id="openFeedbackContainer" class="openfeedback-container"></div>
+
+	<div class="footerContainer has-default-focus is-hidden-interactive ">
+<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+
+    <div class="is-flex is-full-height has-padding-right-extra-large-desktop">
+			<a data-mscc-ic="false" class="locale-selector-link has-flex-shrink-none" href="https://docs.microsoft.com/en-us/locale?target=https://docs.microsoft.com/en-us/ef/ef6/modeling/code-first/conventions/model" data-bi-name="select-locale"><span class="icon docon docon-world is-size-4 has-margin-right-small" aria-hidden="true"></span><span class="local-selector-link-text">English (United States)</span></a>
+		<div class="has-margin-left-medium has-margin-right-medium has-flex-shrink-none">
+<div class="dropdown has-caret-up">
+	<button class="dropdown-trigger button is-transparent is-small is-icon-only-touch has-inner-focus theme-dropdown-trigger" aria-controls="theme-menu" aria-expanded="false" title="Theme" data-bi-name="theme">
+		<span class="icon">
+			<span class="docon docon-sun" aria-hidden="true"></span>
+		</span>
+		<span>Theme</span>
+	</button>
+	<div class="dropdown-menu" id="theme-menu" role="menu">
+		<ul class="theme-selector has-padding-small">
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start is-selected" data-theme-to="light" aria-pressed="true">
+					<span class="theme-light has-margin-right-small">
+						<span class="theme-selector-icon css-variable-support has-border is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Light					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start" data-theme-to="dark" aria-pressed="false">
+					<span class="theme-dark has-margin-right-small">
+						<span class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+Dark					</span>
+				</button>
+			</li>
+			<li class="theme is-block">
+				<button class="button is-text is-small theme-control is-fullwidth has-flex-justify-content-start" data-theme-to="high-contrast" aria-pressed="false">
+					<span class="theme-high-contrast has-margin-right-small">
+						<span class="has-border theme-selector-icon css-variable-support is-inline-block has-body-background" aria-hidden="true">
+							<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+								<rect width="22" height="14" class="has-fill-body-background"></rect>
+								<rect x="5" y="5" width="12" height="4" class="has-fill-secondary"></rect>
+								<rect x="5" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="8" y="2" width="2" height="1" class="has-fill-secondary"></rect>
+								<rect x="11" y="2" width="3" height="1" class="has-fill-secondary"></rect>
+								<rect x="1" y="1" width="2" height="2" class="has-fill-secondary"></rect>
+								<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary"></rect>
+								<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary"></rect>
+							</svg>
+						</span>
+					</span>
+					<span role="menuitem">
+High contrast					</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>		</div>
+	</div>
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/previous-versions/" data-bi-name="archivelink">Previous Version Docs</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/teamblog" data-bi-name="bloglink">Blog</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/contribute" data-bi-name="contributorGuide">Contribute</a></li>
+				<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy">Privacy &amp; Cookies</a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse">Terms of Use</a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback">Site Feedback</a></li>
+			<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks">Trademarks</a></li>
+		<li>© Microsoft 2020</li>
+    </ul>
+</footer>
+	</div>
+
+	<div id="action-panel" role="region" aria-label="Action Panel" class="action-panel has-default-focus" tabindex="-1" aria-expanded="false"></div>
+
+
+<div class="usabilla_live_button_container" role="button" tabindex="0" style="margin-top: 0px; position: fixed; width: 0px; height: 0px; z-index: 99999990; right: 0px; top: 50%; display: none;" aria-label="Usabilla Feedback Button"><iframe src="./Model-Based Conventions_files/saved_resource(1).html" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" data-tags="right" title="Usabilla Feedback Button" style="width: 0px; height: 0px; margin: 0px; padding: 0px; border: 0px; overflow: hidden; z-index: 9998; position: absolute; left: 0px; top: 0px; box-shadow: 0px 0px 0px; background-color: transparent;"></iframe></div></body></html>
